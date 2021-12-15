@@ -1,0 +1,42 @@
+* {
+    font-family: sans-serif;
+}
+
+
+#body {
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+
+    width: 100vh;
+    height: 100vw;
+    background-color: rgb(209, 203, 203);
+}
+
+h1 {
+    margin: 30px 0px 15px;
+    font-size: 48px;
+}
+
+#playerText {
+    display: flex;
+    font-size: 24px;
+}
+
+#roundText {
+    margin-bottom: 15px;
+}
+
+.boardSquare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 10vh;
+
+    box-sizing: border-box; 
+    height: 31%; 
+    width: 31%; 
+    background-color: lightblue; 
+    border: solid 5px black;
+}
