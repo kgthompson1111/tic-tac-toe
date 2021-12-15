@@ -2,6 +2,14 @@
     font-family: sans-serif;
 }
 
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 #body {
     display: flex;
@@ -9,12 +17,12 @@
     flex-direction:column;
 
     width: 100vh;
-    height: 100vw;
-    background-color: rgb(209, 203, 203);
+    height: 100vh;
+    background: linear-gradient(white, lightblue);
 }
 
 h1 {
-    margin: 30px 0px 15px;
+    margin: 30px 0px 5px;
     font-size: 48px;
 }
 
@@ -25,6 +33,19 @@ h1 {
 
 #roundText {
     margin-bottom: 15px;
+    height: 1em;
+}
+
+#board {
+    display: flex; 
+    flex-wrap: wrap; 
+    padding: 5px; 
+    justify-content: space-around; 
+    align-items: center; 
+    height: 600px; 
+    width: 600px; 
+    background-color: rgb(255, 255, 255);
+    border: solid 5px black;
 }
 
 .boardSquare {
