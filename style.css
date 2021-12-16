@@ -76,6 +76,6 @@ h1 {
     box-shadow: 0px 0px 5px 5px rgba(107, 96, 251, 0.349);
 }
 
-.freeSquare:active {
+.freeSquare:active, button:active {
     border-color: white;
 }
