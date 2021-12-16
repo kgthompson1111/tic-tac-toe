@@ -16,14 +16,24 @@ body {
     align-items: center;
     flex-direction:column;
 
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
-    background: linear-gradient(white, lightblue);
+    background: linear-gradient(white, lightblue);   
 }
 
 h1 {
     margin: 30px 0px 5px;
     font-size: 48px;
+}
+
+.button {
+    border: solid 5px black; 
+    background-color: white; 
+    font-size: 24px; width: 45%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border: 5px solid black;
 }
 
 #playerText {
@@ -32,7 +42,7 @@ h1 {
 }
 
 #roundText {
-    margin-bottom: 15px;
+    margin: 15px 0px;
     height: 1em;
 }
 
@@ -60,4 +70,12 @@ h1 {
     width: 31%; 
     background-color: lightblue; 
     border: solid 5px black;
+}
+
+.freeSquare:hover, .button:hover {
+    box-shadow: 0px 0px 5px 5px rgba(107, 96, 251, 0.349);
+}
+
+.freeSquare:active {
+    border-color: white;
 }
