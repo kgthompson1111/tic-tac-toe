@@ -19,6 +19,7 @@ const player = (symbol, name, score, isComputer) => {
 
 const game = (() => {
 
+    playerText.setAttribute('style', 'display: none');
     // after drawing the page, initialize variables
     // create an index array for the board
     const boardIndex = [];
@@ -57,19 +58,27 @@ const game = (() => {
 
     // freeze the board for reset
     const resetMode = () => {
+        // add class to board for styling
+        board.classList.add('boardButton');
+
+        // remove hover styling from boxes
+        for(i = 0; i < 9; i++) {
+            const sweeper = document.getElementById(`${i}`);
+            sweeper.classList.remove('freeSquare');
+        }
         // remove event listener
         const boardSquares = document.querySelectorAll('.boardSquare');
         boardSquares.forEach((div) => {
         div.removeEventListener('click', chooseSquare);
         });
-        // add window reset event listener
-        document.addEventListener('mousedown', reset);
+        // add window reset event listener - requires a timeout
+        setTimeout(() => { board.addEventListener('click', reset); }, 100);
 
     }
 
     // X win function
     const xWins = () => {
-        roundText.innerHTML = `${x.name} wins the round! Click anywhere to reset the board`;
+        roundText.innerHTML = `${x.name} wins the round! Click the board to reset`;
         x.score++;
         xScore.innerText = x.score;
         winner = true;
@@ -78,7 +87,7 @@ const game = (() => {
 
     // O win function
     const oWins = () => {
-        roundText.innerHTML = `${o.name} wins the round! Click anywhere to reset the board`;
+        roundText.innerHTML = `${o.name} wins the round! Click the board to reset`;
         o.score++;
         oScore.innerText = o.score;
         winner = true;
@@ -231,21 +240,24 @@ const game = (() => {
 
     // create a container for the game board - 600 x 600
     const drawBoard = () => {
-    const board = document.createElement('div');
-    board.setAttribute('id', 'board');
-    body.appendChild(board);
+        // show playerText box if it's hidden
+        playerText.setAttribute('style', 'display');
+        const board = document.createElement('div');
+        board.setAttribute('id', 'board');
+        board.classList.add('boardStyle');
+        body.appendChild(board);
 
-    // after drawing a container, make game squares and index them 0-8 with an id
-    for(i = 0; i < 9; i++) {
-        const boardSquare = document.createElement('div');
-        boardSquare.setAttribute('id', `${i}`);
-        boardSquare.classList.add('boardSquare', 'freeSquare');
-        board.appendChild(boardSquare);
+        // after drawing a container, make game squares and index them 0-8 with an id
+        for(i = 0; i < 9; i++) {
+            const boardSquare = document.createElement('div');
+            boardSquare.setAttribute('id', `${i}`);
+            boardSquare.classList.add('boardSquare', 'freeSquare');
+            board.appendChild(boardSquare);
 
-        // add event listener to gameSquare
-        boardSquare.addEventListener('click', chooseSquare);
-    }
-    roundText.innerHTML = `${x.name}'s turn (X)`;
+            // add event listener to gameSquare
+            boardSquare.addEventListener('click', chooseSquare);
+        }
+        roundText.innerHTML = `${x.name}'s turn (X)`;
     }
 
     const playMode = () => {
